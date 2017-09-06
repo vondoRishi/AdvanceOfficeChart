@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0 (Openjdk)
+UNO-Type-Path: 
+RegistrationClassName: com.advanceChart.CentralRegistrationClass
+Class-Path: lib/jcommon-1.0.21.jar lib/jfreechart-1.0.17.jar lib/jfreesvg-1.4.jar
+
+Name: com/advanceChart/CentralRegistrationClass.class
+RegistrationClasses: com.advanceChart.RegisterAndService

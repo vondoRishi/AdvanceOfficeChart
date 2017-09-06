@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="AdvanceOfficeChart">
+ 
+	<!-- The following build script works with a standard installation of OpenOffice 3.0.1
+	     and OpenOffice SDK 3.0.1 as described in section >Linux RPM-based Installation< 
+	     of the document found at http://download.openoffice.org/common/instructions.html. -->
+ 
+	<!-- This script is tested with the Eclipse IDE and stand-alone, without any IDE support. -->
+ 
+	<!-- Paths based on the standard installation of OOo 3.0.1 and OOo SDK 3.0.1 on unix -->
+	<property name="OFFICE_ROOT" value="/usr/lib64/libreoffice" />
+	<property name="OFFICE_HOME" value="${OFFICE_ROOT}" />
+	<property name="OO_SDK_HOME" value="${OFFICE_HOME}" />
+	<property name="OO_URE_HOME" value="${OFFICE_ROOT}/ure" />
+ 
+	<target name="init">
+		<property name="OUT_DIR" value="/home/rishi/Project/AdvnceOfficeChart/AOC/" />
+		<!-- For eclipse we need to set the output folder to this path -->
+		<property name="BIN_DIR" value="${basedir}/bin/" />
+	</target>
+ 
+	<path id="office.class.path">
+		<filelist dir="${OO_SDK_HOME}/program/classes" files="unoil.jar" />
+		<filelist dir="${OO_URE_HOME}/share/java" files="jurt.jar,ridl.jar,juh.jar" />
+	</path>
+ 
+	<fileset id="bootstrap.glue.code" dir="${OO_SDK_HOME}/program/classes">
+		<patternset>
+			<include name="com/sun/star/lib/loader/*.class" />
+		</patternset>
+	</fileset>
+ 
+	<!-- Since the Eclipse IDE has an incremental compiler build in we do not need
+	     to run the >compile< target in this case -->
+	<target name="compile" depends="init" unless="eclipse.running">
+		<mkdir dir="${BIN_DIR}" />
+		<javac debug="true" deprecation="true" destdir="${BIN_DIR}" srcdir=".">
+			<classpath refid="office.class.path" />
+		</javac>
+	</target>
+ 
+	<target name="jar" depends="init,compile">
+		<mkdir dir="${OUT_DIR}" />
+		<jar basedir="${BIN_DIR}" compress="true" jarfile="${OUT_DIR}/AdvanceOfficeChart.jar" manifest="${basedir}/META-INF/MANIFEST.MF">
+			<exclude name="**/*.java" />
+			<exclude name="*.jar" />
+			<fileset refid="bootstrap.glue.code" />
+		</jar>
+	</target>
+ 
+	<target name="all" description="Build everything." depends="init,compile,jar">
+		<echo message="Application built. AdvanceOfficeChart!" />
+	</target>
+ 
+	<target name="run" description="Try running it." depends="all">
+		<java jar="${OUT_DIR}/AdvanceOfficeChart.jar" failonerror="true" fork="true">
+		</java>
+	</target>
+ 
+	<target name="cleanbin" description="Clean all binaries." unless="eclipse.running">
+		<delete>
+			<fileset dir="${BIN_DIR}">
+				<include name="**/*.class" />
+			</fileset>
+		</delete>
+	</target>
+ 
+	<target name="cleanall" description="Clean all build products." depends="init,cleanbin">
+		<delete file="${OUT_DIR}/AdvanceOfficeChart.jar" />
+	</target>
+ 
+</project>
