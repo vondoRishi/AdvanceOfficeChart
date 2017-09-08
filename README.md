@@ -6,7 +6,7 @@
   After installation, restart OpenOffice and the extension will be available from "Tools -> Add-Ons".  Please comment your experience or report any bug.  
   This extension uses JFreeChart (http://www.jfree.org/jfreechart/) library to plot the charts.  
         
-    Tested on : <br>
+    Tested on : 
 Windows 7 (64 bit) + OpenOffice 4.0.1 (Passed)  <br>
 Windows 7 (64 bit) + LibreOffice 4.1.4.2 (Passed)  <br>
 Windows + OpenOffice 3.3 (Passed)  <br>
