@@ -1,12 +1,26 @@
 # AdvanceOfficeChart
-  The objective of this extension is to easily provide high quality charts which are not available in OpenOffice or LibreOffice. Such a list of charts could be found https://wiki.openoffice.org/wiki/Chart2/ChartTypes.  At present, with this extension, it is possible to plot histogram and boxplot charts and save them in png or svg format. I will try to add Venn diagram and other chart types in future releases of this extension.  
+  The objective of this extension is to easily provide high quality charts which are not available in OpenOffice or LibreOffice. Such a list of charts could be found https://wiki.openoffice.org/wiki/Chart2/ChartTypes.  At present, with this extension, it is possible to plot venn diagrams (upto 4 way, get the elements of different sets), histogram (flexible) and boxplot charts and save them in png or svg format.  
   OpenOffice plugin [page](https://extensions.openoffice.org/en/project/advance-office-chart). 
   
   Libreoffice plugin [page](https://extensions.libreoffice.org/extensions/advance-office-chart-1). 
   
   After installation, restart OpenOffice and the extension will be available from "Tools -> Add-Ons".  Please comment your experience or report any bug.  
   This extension uses JFreeChart (http://www.jfree.org/jfreechart/) library to plot the charts.  
-    Tested on : CentOS + LibreOffice 4.0 (Passed) 
-    CentOS + LibreOffice 3.5 (Passed) 
-    Windows + OpenOffice 3.3 (Passed)  
-    Ubuntu + Libreoffice 3.5 (failed)
+        
+    Tested on : <br>
+Windows 7 (64 bit) + OpenOffice 4.0.1 (Passed)  <br>
+Windows 7 (64 bit) + LibreOffice 4.1.4.2 (Passed)  <br>
+Windows + OpenOffice 3.3 (Passed)  <br>
+CentOS + LibreOffice 4.0 (Passed)  <br>
+CentOS + LibreOffice 3.5 (Passed)  <br>
+
+Ubuntu + LibreOffice 3.5 (passed)   <br>
+{  if you encounter an error message like "CannotRegisterImplementationException" then try following as suggested [here ..] (http://sourceforge.net/apps/trac/comppad/wiki/FrequentlyAskedQuestions#OninstallationIgetCannotRegisterImplementationExceptionerror.) 
+
+    update libreoffice with   <br>
+
+    "sudo apt-get install libreoffice"   <br>
+
+    reinstall this extension.  }
+
+
