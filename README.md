@@ -15,10 +15,13 @@ CentOS + LibreOffice 4.0 (Passed)  <br>
 CentOS + LibreOffice 3.5 (Passed)  <br>
 
 Ubuntu + LibreOffice 3.5 (passed)   <br>
-{  if you encounter an error message like "CannotRegisterImplementationException" then try following as suggested [here](http://sourceforge.net/apps/trac/comppad/wiki/FrequentlyAskedQuestions#OninstallationIgetCannotRegisterImplementationExceptionerror) .. 
+
+* if you encounter an error message like "CannotRegisterImplementationException" then try following as suggested [here](http://sourceforge.net/apps/trac/comppad/wiki/FrequentlyAskedQuestions#OninstallationIgetCannotRegisterImplementationExceptionerror) .. 
 
   update libreoffice with   
   "sudo apt-get install libreoffice"  
   reinstall this extension.  
+* Debian users may need to install java runtime separately ..
 
-
+    apt install openjdk-17-jre 
+    then reboot 
